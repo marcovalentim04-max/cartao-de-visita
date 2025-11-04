@@ -45,13 +45,6 @@ const Hero = () => {
         >
           <h1 className="hero-title">{businessData.name}</h1>
           <p className="hero-slogan">{businessData.slogan}</p>
-          <motion.button
-            className="hero-cta"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Saiba Mais
-          </motion.button>
         </motion.div>
       </div>
 

@@ -13,9 +13,7 @@ function App() {
       <BusinessProvider>
         <div className="app">
           <Hero />
-          <About />
           <SocialContacts />
-          <Footer />
           <AdminPanel />
         </div>
       </BusinessProvider>

@@ -1,12 +1,13 @@
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #FFF9E6 0%, #FFFFFF 50%, #FFD700 100%);
   overflow: hidden;
-  padding: 2rem;
+  padding: 1rem;
+  width: 100%;
 }
 
 .hero-background {
@@ -41,9 +42,10 @@
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 4rem;
-  max-width: 1200px;
+  gap: 2rem;
+  max-width: 1000px;
   width: 100%;
+  padding: 0 1rem;
 }
 
 .hero-logo {
@@ -51,16 +53,16 @@
 }
 
 .logo-container {
-  width: 350px;
-  height: 350px;
+  width: 120px;
+  height: 120px;
   background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 20px 60px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
   overflow: hidden;
-  padding: 20px;
+  padding: 10px;
   animation: pulse 3s ease-in-out infinite, float 6s ease-in-out infinite;
 }
 
@@ -118,12 +120,12 @@
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 1.5rem;
   font-weight: 900;
   color: #2C2C2C;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.3rem 0;
   line-height: 1.1;
-  text-shadow: 3px 3px 6px rgba(255, 215, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.3);
   animation: slideInRight 1s ease-out;
 }
 
@@ -139,9 +141,9 @@
 }
 
 .hero-slogan {
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   color: #555;
-  margin: 0 0 2rem 0;
+  margin: 0;
   font-weight: 300;
   animation: slideInRight 1s ease-out 0.2s backwards;
 }
@@ -158,6 +160,9 @@
   box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
   transition: all 0.3s ease;
   animation: slideInRight 1s ease-out 0.4s backwards, bounce 2s ease-in-out 2s infinite;
+  margin-top: 1.5rem;
+  text-decoration: none;
+  display: inline-block;
 }
 
 @keyframes bounce {
@@ -231,26 +236,52 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    min-height: 25vh;
+    padding: 0.8rem;
+  }
+
   .hero-content {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     text-align: center;
+    padding: 0;
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 1.3rem;
   }
 
   .hero-slogan {
-    font-size: 1.2rem;
+    font-size: 0.7rem;
   }
 
   .logo-container {
-    width: 180px;
-    height: 180px;
+    width: 90px;
+    height: 90px;
   }
 
   .floating-circle {
     opacity: 0.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: 22vh;
+    padding: 0.6rem;
+  }
+
+  .hero-title {
+    font-size: 1.1rem;
+  }
+
+  .hero-slogan {
+    font-size: 0.65rem;
+  }
+
+  .logo-container {
+    width: 80px;
+    height: 80px;
   }
 }

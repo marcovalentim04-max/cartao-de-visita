@@ -36,6 +36,48 @@ const SocialContacts = () => {
   return (
     <section className="social-contacts">
       <div className="social-container">
+        {/* Chaves PIX */}
+        <motion.div
+          className="section-block"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="section-title section-title-dark">Chaves PIX</h2>
+          <div className="title-underline title-underline-dark"></div>
+          
+          <div className="pix-grid">
+            {businessData.pixKeys.map((pix) => (
+              <motion.div
+                key={pix.id}
+                className="pix-card"
+                whileHover={{ x: 5 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+              >
+                <div className="card-icon pix-icon">
+                  <SiPix />
+                </div>
+                <div>
+                  <h4>{pix.label}</h4>
+                  <p className="pix-key">{pix.key}</p>
+                </div>
+                <button
+                  className="copy-btn"
+                  onClick={() => {
+                    navigator.clipboard.writeText(pix.key);
+                    alert('Chave PIX copiada!');
+                  }}
+                >
+                  Copiar
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         {/* Redes Sociais */}
         <div className="social-section-wrapper">
           <motion.div
@@ -43,21 +85,21 @@ const SocialContacts = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h2 className="section-title">Nossas Redes Sociais</h2>
             <div className="title-underline"></div>
             
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
-              spaceBetween={30}
+              spaceBetween={20}
               slidesPerView={1}
               navigation
               pagination={{ clickable: true }}
               autoplay={{ delay: 3000, disableOnInteraction: false }}
               breakpoints={{
-                640: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+                640: { slidesPerView: 2, spaceBetween: 20 },
+                1024: { slidesPerView: 3, spaceBetween: 20 },
               }}
               className="cards-carousel"
             >
@@ -81,46 +123,6 @@ const SocialContacts = () => {
           </motion.div>
         </div>
 
-        {/* Chaves PIX */}
-        <motion.div
-          className="section-block"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <h2 className="section-title section-title-dark">Chaves PIX</h2>
-          <div className="title-underline title-underline-dark"></div>
-          
-          <div className="pix-grid">
-            {businessData.pixKeys.map((pix) => (
-              <motion.div
-                key={pix.id}
-                className="pix-card"
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-              >
-                <div className="card-icon pix-icon">
-                  <SiPix />
-                </div>
-                <h4>{pix.label}</h4>
-                <p className="pix-key">{pix.key}</p>
-                <button
-                  className="copy-btn"
-                  onClick={() => {
-                    navigator.clipboard.writeText(pix.key);
-                    alert('Chave PIX copiada!');
-                  }}
-                >
-                  Copiar
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Contatos */}
         <div className="contacts-section-wrapper">
           <motion.div
@@ -138,14 +140,16 @@ const SocialContacts = () => {
                 <motion.div
                   key={contact.id}
                   className="contact-card"
-                  whileHover={{ y: -5 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ x: 5 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                 >
                   <div className="card-icon contact-icon">{getContactIcon(contact.type)}</div>
-                  <h4>{contact.label}</h4>
-                  <p>{contact.value}</p>
+                  <div>
+                    <h4>{contact.label}</h4>
+                    <p>{contact.value}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
